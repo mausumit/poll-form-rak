@@ -1,0 +1,103 @@
+.carousel-container {
+  background: #f1f1f1;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  flex-direction: column;
+  position: relative;
+  .logo {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    color: #fff;
+  }
+  .carousel-item {
+    height: 100vh;
+    min-width: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 1s cubic-bezier(0.39, 0.575, 0.565, 1);
+    .ques-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      align-self: stretch;
+      background-color: #6b54fe;
+      &.submit{
+        justify-content: center;
+        button{
+          background-color: #fff;
+          color: #000;
+        }
+      }
+      &.answers{
+        display: flex;
+        justify-content: space-between;
+        background-color: #6b54fe;
+      }
+      h1 {
+        color: #fff;
+        margin: 0;
+        padding: 0 10rem;
+        font-size: 50px;
+      }
+    }
+
+    .options-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-self: stretch;
+      background-color: #fff;
+      .options {
+        button {
+          border: none;
+          background: transparent;
+          margin: 20px;
+          cursor: pointer;
+          &.highlight {
+            
+            .icon {
+              font-size: 60px;
+            }
+            .label {
+              display: block;
+            }
+          }
+          .icon {
+            font-size: 50px;
+            display: block;
+          }
+          .label {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  .indicators {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    .indicator {
+      width: 7px;
+      height: 7px;
+      margin: 0 5px 10px;
+      border-radius: 50%;
+      border: 1px solid #fff;
+      cursor: pointer;
+      &.active {
+        background: #fff;
+      }
+      &.fill{
+        background: #fff;
+      }
+    }
+  }
+}
