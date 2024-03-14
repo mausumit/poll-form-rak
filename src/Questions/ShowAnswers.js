@@ -26,7 +26,7 @@ const ShowAnswers = () => {
         );
       })}
       <Grid item xs={12} className="ques-container submit">
-        <Button data-testid={"submit-btn"}> variant="outlined" onClick={submitAnswers}>
+        <Button data-testid={"submit-btn"} variant="outlined" onClick={submitAnswers}>
           Submit
         </Button>
       </Grid>
