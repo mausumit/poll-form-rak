@@ -1,28 +1,27 @@
-import React, { useEffect, useState } from "react";
-import Questions from "../Questions/Questions";
+import React, { useState } from "react";
+import Questions from "../components/Questions/Questions.tsx"
 import BookmarkIcon from "@mui/icons-material/Bookmark";
 import { useDispatch, useSelector } from "react-redux";
-import { addAnswer } from "../redux/questionsSlice";
-import ShowAnswers from "../Questions/ShowAnswers";
+import { addAnswer } from "../redux/questionsSlice.ts";
+import ShowAnswers from "../components/Questions/ShowAnswers.tsx";
+import { IQuestion } from "../interface/IQuestion.ts";
 
 const Carousel = () => {
-  const {questionsArr} = useSelector((state) => state.questions);
+  const { questionsArr } = useSelector((state) => {
+console.log("state", state);
+    return state.questions
+  });
   const dispatch = useDispatch();
   const [currentIndex, setCurrentIndex] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-    }, 3000);
-    return () => clearInterval(interval);
-  });
-  const onAnsSelect = (ans, quesIndex, index) => {
+  const onAnsSelect = (ans:string, quesIndex:number) => {
     setCurrentIndex(quesIndex + 1);
     dispatch(addAnswer({quesIndex,ans}));
   };
   return (
     <>
-      <div className="carousel-container">
-        <BookmarkIcon className="logo" />
-        {questionsArr.map((item, index) => {
+      <div className="carousel-container" data-testid={"carousel"}>
+        <BookmarkIcon className="logo" data-testid={"logo"} />
+        {questionsArr.map((item: IQuestion, index: number) => {
           return (
             <Questions
               data={item}
@@ -33,9 +32,9 @@ const Carousel = () => {
             />
           );
         })}
-        {currentIndex===questionsArr.length&&<ShowAnswers />}
+        {currentIndex === questionsArr.length && <ShowAnswers />}
         <div className="indicators">
-          {questionsArr.map((item, index) => {
+          {questionsArr.map((item: IQuestion, index: number) => {
             return (
               <div
                 data-key={index}

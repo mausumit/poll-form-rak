@@ -1,5 +1,6 @@
 import { Button, Grid } from "@mui/material";
 import { useSelector } from "react-redux";
+import { IQuestion } from "../../interface/IQuestion";
 
 const ShowAnswers = () => {
   const { questionsArr } = useSelector((state) => state.questions);
@@ -17,7 +18,7 @@ const ShowAnswers = () => {
       className="carousel-item"
       style={{ transform: `translateY( -${questionsArr.length * 100}%` }}
     >
-      {questionsArr.map((item, index) => {
+      {questionsArr.map((item: IQuestion, index: number) => {
         return (
           <Grid item xs={12} className="ques-container">
             <h1 data-testid={"question"}>{item.title}</h1>
@@ -26,7 +27,11 @@ const ShowAnswers = () => {
         );
       })}
       <Grid item xs={12} className="ques-container submit">
-        <Button data-testid={"submit-btn"} variant="outlined" onClick={submitAnswers}>
+        <Button
+          data-testid={"submit-btn"}
+          variant="outlined"
+          onClick={submitAnswers}
+        >
           Submit
         </Button>
       </Grid>
