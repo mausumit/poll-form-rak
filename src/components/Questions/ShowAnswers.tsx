@@ -20,7 +20,7 @@ const ShowAnswers = () => {
     >
       {questionsArr.map((item: IQuestion, index: number) => {
         return (
-          <Grid item xs={12} className="ques-container">
+          <Grid item xs={12} className="ques-container" key={`${Math.ceil(Math.random()*100)}-${index}`}>
             <h1 data-testid={"question"}>{item.title}</h1>
             <h1 data-testid={"answer"}>{item.answer}</h1>
           </Grid>

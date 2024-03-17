@@ -7,10 +7,7 @@ import ShowAnswers from "../components/Questions/ShowAnswers.tsx";
 import { IQuestion } from "../interface/IQuestion.ts";
 
 const Carousel = () => {
-  const { questionsArr } = useSelector((state) => {
-console.log("state", state);
-    return state.questions
-  });
+  const { questionsArr } = useSelector((state) => state.questions);
   const dispatch = useDispatch();
   const [currentIndex, setCurrentIndex] = useState(0);
   const onAnsSelect = (ans:string, quesIndex:number) => {

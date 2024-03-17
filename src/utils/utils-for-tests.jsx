@@ -5,23 +5,11 @@ import { Provider } from "react-redux";
 // As a basic setup, import your same slice reducers
 import questionsReducer from '../redux/questionsSlice';
 
-const questionsArr= [
-  {
-    title: "",
-    options: [
-      {
-        icon: '',
-        hoverLabel: "",
-      },
-    ],
-    answer: "",
-  },
-];
-const initialState = { questionsArr };
+
 export function renderWithProviders(
   ui,
   {
-    preloadedState = initialState,
+    preloadedState = {},
     // Automatically create a store instance if no store was passed in
     store = configureStore({
       reducer: {
